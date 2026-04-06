@@ -45,7 +45,7 @@
                                             </td>
                                             <td class="px-4 py-2 text-sm">{{ $transaction->description ?? '-' }}</td>
                                             <td class="px-4 py-2 text-sm text-right {{ $transaction->category->type === 'income' ? 'text-green-600 font-semibold' : 'text-red-600 font-semibold' }}">
-                                                {{ $transaction->category->type === 'income' ? '+' : '-' }}${{ number_format($transaction->amount, 2) }}
+                                                {{ $transaction->category->type === 'income' ? '+' : '-' }}₱{{ number_format($transaction->amount, 2) }}
                                             </td>
                                             <td class="px-4 py-2 text-center text-sm">
                                                 <a href="{{ route('transactions.edit', $transaction) }}" class="text-blue-600 hover:underline mr-2">Edit</a>

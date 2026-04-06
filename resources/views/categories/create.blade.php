@@ -14,7 +14,7 @@
 
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium mb-1">Name</label>
-                            <input type="text" name="name" id="name" placeholder="e.g., Groceries, Salary" class="w-full px-3 py-2 border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300 dark:border-gray-600' }} rounded" required value="{{ old('name') }}">
+                            <input type="text" name="name" id="name" placeholder="e.g., Groceries, Salary" class="w-full px-3 py-2 rounded {{ $errors->has('name') ? 'border border-red-500' : 'border border-gray-300 dark:border-gray-600' }}" required value="{{ old('name') }}">
                             @error('name')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -22,7 +22,7 @@
 
                         <div class="mb-4">
                             <label for="type" class="block text-sm font-medium mb-1">Type</label>
-                            <select name="type" id="type" class="w-full px-3 py-2 border {{ $errors->has('type') ? 'border-red-500' : 'border-gray-300 dark:border-gray-600' }} rounded" required>
+                            <select name="type" id="type" class="w-full px-3 py-2 rounded {{ $errors->has('type') ? 'border border-red-500' : 'border border-gray-300 dark:border-gray-600' }}" required>
                                 <option value="">Select a type</option>
                                 <option value="income" {{ old('type') === 'income' ? 'selected' : '' }}>Income</option>
                                 <option value="expense" {{ old('type') === 'expense' ? 'selected' : '' }}>Expense</option>

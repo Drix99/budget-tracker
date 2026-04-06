@@ -14,13 +14,20 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased bg-gradient-to-br from-slate-100 via-sky-50 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+        <div class="min-h-screen relative">
             @include('layouts.navigation')
+
+            <div id="loading-overlay" class="fixed inset-0 z-50 justify-center items-center bg-slate-950/80 backdrop-blur-sm" style="display: none;">
+                <div class="text-center">
+                    <div class="spinner mx-auto mb-4"></div>
+                    <p class="text-white text-sm font-semibold">Loading… please wait</p>
+                </div>
+            </div>
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white shadow">
+                <header class="bg-white/90 backdrop-blur-sm shadow-sm border-b border-slate-200 dark:bg-slate-900 dark:border-gray-800">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

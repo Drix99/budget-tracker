@@ -6,11 +6,16 @@ A comprehensive budget tracking application built with Laravel to help students 
 
 - **Transaction Management**: Add, edit, and delete income and expense transactions
 - **Category Management**: Create and organize transactions into custom income and expense categories
-- **Financial Dashboard**: View total income, total expenses, and current balance at a glance
+- **Weekly Budget Tracking**: Set weekly spending limits and monitor remaining budget in Philippine pesos (₱)
+- **Smart Spending Insights**: Get intelligent alerts when approaching budget limits (70-80%+)
+- **Budget Predictions**: View estimated days until budget depletion based on spending patterns
+- **Visual Analytics**: Category pie charts and 7-day spending trends
+- **Financial Dashboard**: Comprehensive view with income, weekly spending, budget status, and insights
 - **Transaction History**: Browse recent transactions with category labels and amounts
+- **Email Verification**: Secure registration with email verification flow
 - **User Authentication**: Secure login and registration using Laravel Breeze
-- **Responsive Design**: Mobile-friendly interface built with Tailwind CSS
-- **Data Persistence**: SQLite database for reliable data storage
+- **Responsive Design**: Mobile-friendly interface with dark mode support
+- **Data Persistence**: MySQL/SQLite database for reliable data storage
 
 ## Tech Stack
 
@@ -77,16 +82,32 @@ The application will be available at `http://localhost:8000`
 
 ## Usage
 
-1. Register or login with your credentials
-2. Navigate to the Dashboard to view your financial summary
-3. Go to Transactions to add new income/expense entries
-4. Manage Categories - create categories for better organization
-5. Track your spending patterns and balance over time
+1. **Register**: Create an account with your email and verify your email address
+2. **Login**: Access your account with verified credentials  
+3. **Dashboard**: View your weekly financial summary including:
+   - Total income and weekly spending
+   - Weekly budget status and remaining budget
+   - Budget alerts when approaching limits
+   - Smart spending predictions
+   - Category spending breakdown (pie chart)
+   - 7-day spending trend (line chart)
+4. **Add Transactions**: Click "Add Expense" to record income or expenses
+5. **Manage Categories**: Organize your transactions by creating custom categories
+6. **Set Budget**: In the dashboard's "Smart Insights" section, set your weekly spending budget
+7. **Track Patterns**: Review charts and insights to understand your spending habits
+
+## Dashboard Insights
+
+- **Budget Alerts**: Automatic warnings at 70% (approaching) and 80%+ (caution) of your weekly budget
+- **Spending Patterns**: See which categories consume the most of your budget
+- **Daily Trends**: Visual 7-day history shows your daily spending patterns
+- **Predictions**: Estimated days until budget exhaustion based on current spending rate
 
 ## Database Schema
 
 ### Users Table
 - Stores user authentication information
+- Includes email verification timestamp
 
 ### Categories Table
 - `id`: Primary key
@@ -101,6 +122,12 @@ The application will be available at `http://localhost:8000`
 - `amount`: Transaction amount
 - `description`: Optional transaction notes
 - `date`: Transaction date
+- `timestamps`: Created and updated timestamps
+
+### Budgets Table
+- `id`: Primary key
+- `user_id`: Reference to user (one budget per user)
+- `weekly_budget`: The weekly spending limit in Philippine pesos
 - `timestamps`: Created and updated timestamps
 
 ## API Routes
